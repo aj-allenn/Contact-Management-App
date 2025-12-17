@@ -25,7 +25,7 @@ export const getContacts = async (req,res)=>{
     }
     let sortOption = sort ==="old" ? {createdAt:1}:{createdAt:-1};
 
-    // const skip = (page -1) * limit;
+   
     const pageNum = Number(page);
     const limitNum = Number(limit);
     const skip = (pageNum - 1) * limitNum;

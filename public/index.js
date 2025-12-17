@@ -1,5 +1,5 @@
 let currentPage=1;
-const limit= 8;
+const limit= 5;
 let editId=null;
 let contactsCache=[];
 
@@ -61,7 +61,7 @@ async function loadContacts(){
             page: currentPage,
             limit
         });
-        // const res = await fetch(`/api/contacts?search=${encodeURIComponent(search)}&countryCode=${encodeURIComponent(country)}&sort=${sort}&page=${currentPage}&limit=${limit}`);
+       
         const res =await fetch(`/api/contacts?${query.toString()}`);
         const data=await res.json();
         contactsCache = data.contacts || [];
