@@ -25,10 +25,14 @@ export const getContacts = async (req,res)=>{
     }
     let sortOption = sort ==="old" ? {createdAt:1}:{createdAt:-1};
 
-    const skip = (page -1) * limit;
-    const contacts = await Contact.find(query).sort(sortOption).skip(skip).limit(Number(limit));
-    const total = await Contact.countDocuents(query);
-    res.json({contact,total,page,pages:Math.ceil(total/limit)
+    // const skip = (page -1) * limit;
+    const pageNum = Number(page);
+    const limitNum = Number(limit);
+    const skip = (pageNum - 1) * limitNum;
+
+    const contacts = await User.find(query).sort(sortOption).skip(skip).limit(Number(limit));
+    const total = await User.countDocuments(query);
+    res.json({contacts,total,page,pages:Math.ceil(total/limit)
 
     });
 }catch(err){
