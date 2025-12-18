@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 import contactRoutes from "./routes/contactRoutes.js"
 
 dotenv.config();
-connectDB();
+// connectDB();
 const app=express();
 const PORT=process.env.PORT||6000;
 app.use(express.json());
@@ -18,8 +18,9 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use("/api/contacts",contactRoutes);
 
-
+connectDB().then(()=>{
 app.listen(PORT,()=>{
     console.log(`Server running on ${PORT}`);
+});
 });
 

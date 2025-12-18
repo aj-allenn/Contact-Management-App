@@ -61,6 +61,8 @@
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             height: fit-content;
+            position: sticky;
+            top: 20px;
         }
 
         .sidebar h2 {
@@ -126,9 +128,12 @@
         }
 
         .contacts-section {
-            background: white;
             border-radius: 20px;
             padding: 30px;
+        }
+
+        .contacts-section.has-contacts {
+            background: white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
@@ -166,30 +171,41 @@
         .contact-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
             transition: all 0.3s ease;
             border-left: 4px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .contact-card:hover {
-            transform: translateX(5px);
+            transform: translateX(1px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .contact-name {
-            font-size: 1.3rem;
+        .contact-card h3 {
+            font-size: 1.1rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
-        .contact-phone {
-            font-size: 1rem;
+        .contact-card p {
+            font-size: 0.9rem;
             color: #666;
+            margin: 0;
+        }
+
+        .contact-card-info {
+            flex: 1;
+        }
+
+        .contact-card-actions {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            gap: 10px;
+            margin-left: 15px;
         }
 
         .empty-state {
@@ -203,6 +219,22 @@
             height: 100px;
             margin-bottom: 20px;
             opacity: 0.5;
+        }
+
+        .emptymessage {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 500;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
         }
 
         .pagination {
@@ -269,44 +301,43 @@
             flex: 1;
         }
         .contact-card button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 10px;
-}
+            padding: 8px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            width: 70px;
+        }
 
+        .contact-card button.btn-edit {
+            background: #914caf; 
+            color: white;
+        }
 
-.contact-card button:nth-of-type(1) {
-    background: #914caf; 
-    color: white;
-}
+        .contact-card button.btn-edit:hover {
+            background: #667eea;
+            transform: translateY(-2px);
+        }
 
-.contact-card button:nth-of-type(1):hover {
-    background: #667eea;
-    transform: translateY(-2px);
-}
+        .contact-card button.btn-delete {
+            background: #667eea; 
+            color: white;
+        }
 
-
-.contact-card button:nth-of-type(2) {
-    background: #667eea; 
-    color: white;
-}
-
-.contact-card button:nth-of-type(2):hover {
-    background: #5b35e5;
-    transform: translateY(-2px);
-}
+        .contact-card button.btn-delete:hover {
+            background: #5b35e5;
+            transform: translateY(-2px);
+        }
 
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📇 Contact Manager</h1>
+            <h1>Contact Manager</h1>
             <p>Manage your contacts with ease</p>
         </div>
 
@@ -334,16 +365,16 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="1234567890" required>
+                            <input type="number" id="phone" name="phone" placeholder="1234567890" required maxlength="10">
                         </div>
+
                     </div>
                     <button type="submit" class="btn-primary">Add Contact</button>
                 </form>
             </div>
 
             <div class="contacts-section">
-                <div class="filters">
-
+                <div class="filters" id="filters" style="display: none;">
                     <input type="text" id="search" placeholder="🔍 Search contacts...">
 
                     <select id="countryCode">
@@ -363,14 +394,25 @@
                     </select>
                 </div>
 
-                <div class="contactbody" >
-                    
+
+                <div class="emptymessage" id="emptymessage">
+                   please add contacts to display here..
+                </div>
+                
+
+                <div class="contactWrapper" style="display: none;">
+                 <div class="contactbody" >
+                    <!-- <div class="empty" id="empty">
+                        <p>Please add contact to display here...</p>
+                    </div> -->
                 </div>
 
                 <div class="pagination">
                     <button id="prev" class="btn-secondary">← Previous</button>
                     <button id="nxt" class="btn-secondary">Next →</button>
                 </div>
+                
+            </div>
             </div>
         </div>
     </div>

@@ -10,13 +10,38 @@ const countryFilter = document.getElementById("countryCode");
 const sortSelect = document.getElementById("sort");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("nxt");
+const emptymessage=document.getElementById("emptymessage");
+const contactsWrapper=document.querySelector(".contactWrapper");
+const contactsSection=document.querySelector(".contacts-section");
 
 const form=document.getElementById("contactForm");
+
+function phoneValid(phone){
+    return /^[7-9][0-9]{9}$/.test(phone);
+}
+
 form.addEventListener("submit", async function(e){
     e.preventDefault();
     const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
     const countryCode = document.getElementById("countryCodeInput").value;
+    const phone = document.getElementById("phone").value;
+
+
+    if(!phoneValid(phone)){
+        alert("Please enter a valid phone number");
+        phone.focus();
+        return;
+    }
+
+    // phone.addEventListener("input",()=>{
+    //     phone.value=phone.value.replace(/[^0-9]/g,"");
+    //     if(phone.value.length>10){
+    //         phone.value=phone.value.slice(0,10);
+    //     }
+    //     if(phone.value.length===1 && phone.value[0]==="0"){
+    //         alert("phone number cannot start with 0");
+    //     }
+    // })
 
     try {
         if(editId){
@@ -41,7 +66,8 @@ form.addEventListener("submit", async function(e){
         loadContacts();
         console.log("Contact saved successfully");
 
-    } catch(error) {
+    } catch(error){
+
         console.error("Error:", error.message);
     }
 });
@@ -67,15 +93,35 @@ async function loadContacts(){
         contactsCache = data.contacts || [];
         contactBody.innerHTML ="";
 
-        contactsCache.forEach(contact=>{
+        //empty
+
+        if(contactsCache.length===0){
+            emptymessage.style.display="flex";
+            contactsWrapper.style.display="none";
+            document.getElementById("filters").style.display="none";
+            contactsSection.classList.remove("has-contacts");
+            
+            return;
+        }
+
+        emptymessage.style.display="none";
+        contactsWrapper.style.display="block";
+        document.getElementById("filters").style.display="flex";
+        contactsSection.classList.add("has-contacts");
+
+          contactsCache.forEach(contact=>{
             const div = document.createElement("div");
             div.classList.add("contact-card");
 
             div.innerHTML=`
-            <h3>${contact.name}</h3>
-            <p>${contact.countryCode} ${contact.phone}</p>
-            <button onclick ="editContact('${contact._id}')">Edit</button>
-            <button onclick ="deleteContact('${contact._id}')">Delete</button>`;
+            <div class="contact-card-info">
+                <h3>${contact.name}</h3>
+                <p>${contact.countryCode} ${contact.phone}</p>
+            </div>
+            <div class="contact-card-actions">
+                <button class="btn-edit" onclick ="editContact('${contact._id}')">Edit</button>
+                <button class="btn-delete" onclick ="deleteContact('${contact._id}')">Delete</button>
+            </div>`;
 
             contactBody.appendChild(div);
         });
@@ -91,6 +137,9 @@ async function loadContacts(){
 
 
 async function deleteContact(id){
+    const confirmDelete= confirm("Do you want to delete the contact");
+    if(!confirmDelete)
+        return;
     try{
         await fetch (`/api/contacts/${id}`,{method:"DELETE"});
         loadContacts();
