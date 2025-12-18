@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema(
 
        phone:{
         type:String,
-        required:true
+        required:true,
+        match:[ /^[7-9][0-9]{9}$/]
     },
     countryCode:{
         type:String,

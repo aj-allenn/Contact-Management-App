@@ -17,7 +17,10 @@ export const getContacts = async (req,res)=>{
     let query={};
 
     if(search){
-        query.name={ $regex:search, $options:"i"};
+        query.$or =[
+            {name:{ $regex:search, $options:"i"}},
+            {phone:{ $regex:`^${search}`, $options:"i"}}
+        ];
     }
 
     if(countryCode){

@@ -14,6 +14,8 @@ const emptymessage=document.getElementById("emptymessage");
 const contactsWrapper=document.querySelector(".contactWrapper");
 const contactsSection=document.querySelector(".contacts-section");
 
+const searchEmpty = document.getElementById("searchEmpty");
+
 const form=document.getElementById("contactForm");
 
 function phoneValid(phone){
@@ -95,11 +97,24 @@ async function loadContacts(){
 
         //empty
 
+
+        // if(data.total ===0){
+        //     emptymessage.style.display="block";
+        //     contactsWrapper.style.display="none";
+        //     searchEmpty.style.display="none";
+        //     return;
+        // }
+
         if(contactsCache.length===0){
             emptymessage.style.display="flex";
             contactsWrapper.style.display="none";
             document.getElementById("filters").style.display="none";
             contactsSection.classList.remove("has-contacts");
+
+
+            if(search){
+                alert("No matching contacts")
+            }
             
             return;
         }
@@ -159,7 +174,7 @@ async function editContact(id) {
             document.getElementById("phone").value=contact.phone;
             document.getElementById("countryCodeInput").value=contact.countryCode;
             editId=id;
-            form.querySelector("button").textContent = "update contact";
+            form.querySelector("button").textContent = "Update Contact";
         }
     }catch(err){
         console.error(err);
