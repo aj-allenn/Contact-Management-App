@@ -12,44 +12,45 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            padding: 20px;
-            color: #333;
+            padding: 30px 20px;
+            color: #2d3748;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .header {
             text-align: center;
-            color: white;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            color: #2d3748;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
         }
 
         .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.05rem;
+            color: #718096;
+            font-weight: 400;
         }
 
         .main-content {
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 30px;
+            grid-template-columns: 380px 1fr;
+            gap: 25px;
             margin-bottom: 30px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
@@ -58,69 +59,80 @@
         .sidebar {
             background: white;
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 32px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             height: fit-content;
             position: sticky;
-            top: 20px;
+            top: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .sidebar h2 {
-            color: #667eea;
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
+            color: #2d3748;
+            margin-bottom: 28px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #4299e1;
+            display: inline-block;
+            width: 100%;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #555;
+            margin-bottom: 9px;
+            color: #4a5568;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
+            padding: 13px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            background: #f7fafc;
+            color: #2d3748;
+            font-family: inherit;
+        }
+
+        .form-group input::placeholder {
+            color: #a0aec0;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4299e1;
             background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
         }
 
         .btn-primary {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px;
+            background: #4299e1;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            background: #3182ce;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4);
         }
 
         .btn-primary:active {
@@ -129,39 +141,46 @@
 
         .contacts-section {
             border-radius: 20px;
-            padding: 30px;
+            padding: 32px;
         }
 
         .contacts-section.has-contacts {
             background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .filters {
             display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 28px;
             flex-wrap: wrap;
         }
 
         .filters input,
         .filters select {
             flex: 1;
-            min-width: 200px;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
+            min-width: 180px;
+            padding: 13px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            background: #f7fafc;
+            color: #2d3748;
+            font-family: inherit;
+        }
+
+        .filters input::placeholder {
+            color: #a0aec0;
         }
 
         .filters input:focus,
         .filters select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4299e1;
             background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
         }
 
         .contactbody {
@@ -169,33 +188,36 @@
         }
 
         .contact-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            padding: 12px 18px;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, #fff 0%, #f7fafc 100%);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            transition: all 0.2s ease;
+            border: 1.5px solid #e2e8f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
         }
 
         .contact-card:hover {
-            transform: translateX(1px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: #4299e1;
         }
 
         .contact-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 4px;
+            color: #2d3748;
+            margin-bottom: 5px;
         }
 
         .contact-card p {
             font-size: 0.9rem;
-            color: #666;
+            color: #718096;
             margin: 0;
+            font-weight: 400;
         }
 
         .contact-card-info {
@@ -205,67 +227,54 @@
         .contact-card-actions {
             display: flex;
             gap: 10px;
-            margin-left: 15px;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-        }
-
-        .empty-state svg {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            opacity: 0.5;
+            margin-left: 20px;
         }
 
         .emptymessage {
             text-align: center;
-            padding: 60px 20px;
-            color: white;
-            font-size: 1.3rem;
+            padding: 80px 20px;
+            color: #718096;
+            font-size: 1.4rem;
             font-weight: 500;
-            min-height: 400px;
+            min-height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: transparent;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            opacity: 0.9;
         }
 
         .pagination {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
+            margin-top: 32px;
         }
 
         .btn-secondary {
-            padding: 12px 30px;
+            padding: 12px 28px;
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-            border-radius: 10px;
-            font-size: 1rem;
+            color: #4299e1;
+            border: 1.5px solid #4299e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .btn-secondary:hover:not(:disabled) {
-            background: #667eea;
+            background: #4299e1;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
         }
 
         .btn-secondary:disabled {
-            opacity: 0.5;
+            opacity: 0.4;
             cursor: not-allowed;
+            border-color: #cbd5e0;
+            color: #a0aec0;
+            background: #f7fafc;
         }
 
         .btn-secondary:active:not(:disabled) {
@@ -273,8 +282,12 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
             .header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .filters {
@@ -288,50 +301,58 @@
 
             .sidebar,
             .contacts-section {
-                padding: 20px;
+                padding: 24px;
+            }
+
+            .main-content {
+                gap: 20px;
             }
         }
 
         .form-row {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
 
         .form-row .form-group {
             flex: 1;
         }
+
         .contact-card button {
-            padding: 8px 20px;
+            padding: 9px 20px;
             border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 70px;
-            width: 70px;
+            transition: all 0.2s ease;
+            min-width: 75px;
+            width: 75px;
         }
 
         .contact-card button.btn-edit {
-            background: #914caf; 
+            background: #48bb78;
             color: white;
+            box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
         }
 
         .contact-card button.btn-edit:hover {
-            background: #667eea;
-            transform: translateY(-2px);
+            background: #38a169;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
         }
 
         .contact-card button.btn-delete {
-            background: #667eea; 
+            background: #f56565;
             color: white;
+            box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
         }
 
         .contact-card button.btn-delete:hover {
-            background: #5b35e5;
-            transform: translateY(-2px);
+            background: #e53e3e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
         }
-
     </style>
 </head>
 <body>
@@ -367,7 +388,6 @@
                             <label for="phone">Phone Number</label>
                             <input type="number" id="phone" name="phone" placeholder="1234567890" required maxlength="10">
                         </div>
-
                     </div>
                     <button type="submit" class="btn-primary">Add Contact</button>
                 </form>
@@ -394,25 +414,19 @@
                     </select>
                 </div>
 
-
                 <div class="emptymessage" id="emptymessage">
-                   please add contacts to display here..
+                   Please add contacts to display here..
                 </div>
-                
 
                 <div class="contactWrapper" style="display: none;">
-                 <div class="contactbody" >
-                    <!-- <div class="empty" id="empty">
-                        <p>Please add contact to display here...</p>
-                    </div> -->
-                </div>
+                    <div class="contactbody">
+                    </div>
 
-                <div class="pagination">
-                    <button id="prev" class="btn-secondary">← Previous</button>
-                    <button id="nxt" class="btn-secondary">Next →</button>
+                    <div class="pagination">
+                        <button id="prev" class="btn-secondary">← Previous</button>
+                        <button id="nxt" class="btn-secondary">Next →</button>
+                    </div>
                 </div>
-                
-            </div>
             </div>
         </div>
     </div>
