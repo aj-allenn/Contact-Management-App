@@ -1,5 +1,5 @@
 let currentPage=1;
-const limit= 5;
+const limit= 4;
 let editId=null;
 let contactsCache=[];
 

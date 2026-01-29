@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             min-height: 100vh;
             padding: 30px 20px;
             color: #2d3748;
@@ -32,15 +32,20 @@
         .header h1 {
             font-size: 2.8rem;
             font-weight: 700;
-            color: #2d3748;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 8px;
             letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
         }
 
         .header p {
             font-size: 1.05rem;
-            color: #718096;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .main-content {
@@ -60,20 +65,21 @@
             background: white;
             border-radius: 20px;
             padding: 32px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             height: fit-content;
             position: sticky;
             top: 30px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .sidebar h2 {
-            color: #2d3748;
+            color: #667eea;
             margin-bottom: 28px;
             font-size: 1.6rem;
-            font-weight: 600;
+            font-weight: 700;
             padding-bottom: 15px;
-            border-bottom: 3px solid #4299e1;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
             display: inline-block;
             width: 100%;
         }
@@ -85,8 +91,8 @@
         .form-group label {
             display: block;
             margin-bottom: 9px;
-            color: #4a5568;
-            font-weight: 500;
+            color: #667eea;
+            font-weight: 600;
             font-size: 0.875rem;
         }
 
@@ -110,29 +116,29 @@
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #4299e1;
+            border-color: #667eea;
             background: white;
-            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
         }
 
         .btn-primary {
             width: 100%;
             padding: 15px;
-            background: #4299e1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         .btn-primary:hover {
-            background: #3182ce;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
         }
 
         .btn-primary:active {
@@ -178,9 +184,9 @@
         .filters input:focus,
         .filters select:focus {
             outline: none;
-            border-color: #4299e1;
+            border-color: #667eea;
             background: white;
-            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
         }
 
         .contactbody {
@@ -188,28 +194,29 @@
         }
 
         .contact-card {
-            background: linear-gradient(135deg, #fff 0%, #f7fafc 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
             border-radius: 12px;
             padding: 20px 24px;
             margin-bottom: 14px;
-            transition: all 0.2s ease;
-            border: 1.5px solid #e2e8f0;
+            transition: all 0.3s ease;
+            border: 2px solid #e8eaf6;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
         }
 
         .contact-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: #4299e1;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.25);
+            border-color: #667eea;
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
         }
 
         .contact-card h3 {
             font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
+            font-weight: 700;
+            color: #667eea;
             margin-bottom: 5px;
         }
 
@@ -233,7 +240,7 @@
         .emptymessage {
             text-align: center;
             padding: 80px 20px;
-            color: #718096;
+            color: rgba(255, 255, 255, 0.95);
             font-size: 1.4rem;
             font-weight: 500;
             min-height: 450px;
@@ -241,6 +248,7 @@
             align-items: center;
             justify-content: center;
             background: transparent;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
         }
 
         .pagination {
@@ -253,20 +261,20 @@
         .btn-secondary {
             padding: 12px 28px;
             background: white;
-            color: #4299e1;
-            border: 1.5px solid #4299e1;
+            color: #667eea;
+            border: 2px solid #667eea;
             border-radius: 8px;
             font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .btn-secondary:hover:not(:disabled) {
-            background: #4299e1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         .btn-secondary:disabled {
@@ -331,27 +339,27 @@
         }
 
         .contact-card button.btn-edit {
-            background: #48bb78;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
-            box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
         }
 
         .contact-card button.btn-edit:hover {
-            background: #38a169;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
         }
 
         .contact-card button.btn-delete {
-            background: #f56565;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             color: white;
-            box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
         }
 
         .contact-card button.btn-delete:hover {
-            background: #e53e3e;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
         }
     </style>
 </head>
